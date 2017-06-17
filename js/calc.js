@@ -20,7 +20,7 @@ function timePartsToSeconds(hh, mm, ss) {
     return (hh * 60 * 60) + (mm * 60) + ss;
 }
 
-function calcMilesPerMinute(dist, hh, mm, ss) {	
+function calcDistancePerMinute(dist, hh, mm, ss) {	
     return secondsPerDistanceToTime(dist, timePartsToSeconds(hh, mm, ss));
 }
 
@@ -30,16 +30,6 @@ function secondsForDistance(dist, spu) {
 
 function timeForDistance(dist, spu) {
     return secondsToTime(secondsForDistance(dist, spu));
-}
-
-function calcTimes(spu, scale) {				
-    var times = {};
-
-    for(distName in distances) {
-        times[distName] = timeForDistance(distances[distName] * scale, spu);
-    }
-
-    return times;
 }
 
 function uphToUps(uph) {
@@ -54,9 +44,19 @@ function spuToUps(spu) {
     return  1 / spu;
 }
 
-function isValid(n) {
-    valid = isFinite(n) && n >= 0; 
-    return valid;
+function uphToSpu(uph) {
+    return upsToSpu(uphToUps(uph));
 }
 
 exports.pad = pad;
+exports.secondsToTime = secondsToTime;
+exports.secondsPerDistanceToTime = secondsPerDistanceToTime;
+exports.timePartsToSeconds = timePartsToSeconds;
+exports.calcDistancePerMinute = calcDistancePerMinute;
+exports.secondsForDistance = secondsForDistance;
+exports.timeForDistance = timeForDistance;
+exports.uphToSpu = uphToSpu;
+exports.uphToUps = uphToUps;
+exports.upsToSpu = upsToSpu;
+exports.spuToUps = spuToUps;
+

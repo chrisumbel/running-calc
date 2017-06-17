@@ -1,0 +1,15 @@
+{
+  "name": "running-calc",
+  "authors": [
+    "Chris Umbel <chris@chrisumbel.com>"
+  ],
+  "description": "library of handy calculations for runners",
+  "license": "MIT",
+  "homepage": "hhttp://www.calcurun.com/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec"
+  ]
+}
