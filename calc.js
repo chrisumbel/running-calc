@@ -5,6 +5,13 @@ function secondsToTime(ss) {
         pad((ss % 60.0).toFixed(2), 5);
 }
 
+function pad(s, n) {
+    if(s.length < n)
+        return '0' + s;
+
+    return s;
+}
+
 function secondsPerDistanceToTime(dist, seconds) {
     return secondsToTime(seconds / dist);
 }
@@ -51,3 +58,5 @@ function isValid(n) {
     valid = isFinite(n) && n >= 0; 
     return valid;
 }
+
+exports.pad = pad;
