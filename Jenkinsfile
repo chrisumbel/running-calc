@@ -7,7 +7,7 @@ node("docker") {
     }
 
     stage("pull source") {
-        git url: 'https://github.com/chrisumbel/running_calc.git', branch:'dev', credentialsId: 'chrisumbel-bot';        
+        git url: 'https://github.com/chrisumbel/running-calc.git', branch:'dev', credentialsId: 'chrisumbel-bot';        
     }
 
     
@@ -22,7 +22,7 @@ node("docker") {
          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'chrisumbel-bot', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
             sh 'git checkout master'
             sh 'git merge dev'
-            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:/chrisumbel/running_calc.git'
+            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:/chrisumbel/running-calc.git'
         }    
     }
 }
